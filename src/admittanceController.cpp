@@ -279,7 +279,7 @@ bool KUKA_INVDYN::init_robot_model() {
 	}
 	*/
 
-    if (!kdl_parser::treeFromFile("/home/eugenio/kuka_ws/src/kuka_control/urdf/iiwa7.urdf", iiwa_tree)){
+    if (!kdl_parser::treeFromFile("/home/jcacace/dev/ros_ws/src/IIWA/iiwa_admittance/urdf/iiwa7.urdf", iiwa_tree)){
     	ROS_ERROR("Failed to construct kdl tree");
       	return false;
     }
@@ -329,7 +329,7 @@ KUKA_INVDYN::KUKA_INVDYN(double sampleTime) :
 
 	_cartpose_pub = _nh.advertise<geometry_msgs::PoseStamped>("/iiwa/eef_pose", 0);
 	_cartvel_pub = _nh.advertise<geometry_msgs::TwistStamped>("/iiwa/eef_twist", 0);
-	_plannedpose_pub = _nh.advertise<geometry_msgs::PoseStamped>("/iiwa/planned_pose", 0);
+	_plannedpose_pub = _nh.advertise<geometry_msgs::PoseStamped>("/iiwa/cmd/pose", 0);
 	_plannedtwist_pub = _nh.advertise<geometry_msgs::TwistStamped>("/iiwa/planned_twist", 0);
 	_plannedacc_pub = _nh.advertise<geometry_msgs::AccelStamped>("/iiwa/planned_acc", 0);
 	_plannedwrench_pub = _nh.advertise<std_msgs::Float64>("/iiwa/planned_wrench", 0);
